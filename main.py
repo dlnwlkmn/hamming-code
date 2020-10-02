@@ -17,7 +17,7 @@ def inputInformVector():
     return toReturn
 
 
-def getHemmingtonCode(infVector):
+def getHemmingCode(infVector):
     hammCode = array('i', [])
     infVectorCounter = 0
     checkBitsCounter = 0
@@ -28,7 +28,7 @@ def getHemmingtonCode(infVector):
         else:
             hammCode.insert(i, infVector[infVectorCounter])
             infVectorCounter += 1
-    for i in range(0, 7):
+
         if hammCode[i] == -1:
             if i == 0:
                 hammCode[i] = (infVector[0] ^ infVector[1] ^ infVector[3])
@@ -38,12 +38,24 @@ def getHemmingtonCode(infVector):
                 hammCode[i] = (infVector[1] ^ infVector[2] ^ infVector[3])
     return hammCode
 
+def factorial(num):
+    if num < 0:
+        return 0
+    if num == 0:
+        return 1
+    if num == 1:
+        return num
+    return num * factorial(num - 1)
+
+def getCombinations(n, i):
+    return factorial(n)/(factorial(i)*factorial(n-i))
 
 def main():
     checkBits = [1,2,4]
     infVector = inputInformVector()
-    hammingVector = getHemmingtonCode(infVector)
-    print(hammingVector)
+    hammingVector = getHemmingCode(infVector)
+    for i in range(0, 7):
+        print("Ci/n = " + str(getCombinations(7, i + 1)))
 
 
 
