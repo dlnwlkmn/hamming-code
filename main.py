@@ -50,12 +50,35 @@ def factorial(num):
 def getCombinations(n, i):
     return factorial(n)/(factorial(i)*factorial(n-i))
 
+def getBinaryError(num):
+    if (num == 0): return "0"
+    elif (num == 1): return "1"
+    else: return getBinaryError(int(num/2)) + str(num%2)
+
+
+
 def main():
     checkBits = [1,2,4]
     infVector = inputInformVector()
     hammingVector = getHemmingCode(infVector)
     for i in range(0, 7):
         print("Ci/n = " + str(getCombinations(7, i + 1)))
+
+    for i in range(1, 128):
+        damagedVector = []
+        binaryError = getBinaryError(i)
+        length = len(binaryError)
+        for j in range(0, 7 - length):
+            binaryError = "0" + binaryError
+        print("До: " + str(hammingVector))
+        print("Ошибка: " + binaryError)
+        for j in range(0, 7):
+            damagedVector.append(hammingVector[j] ^ int(binaryError[j]))
+        print("После : " + str(damagedVector) + "\n")
+
+
+
+
 
 
 
