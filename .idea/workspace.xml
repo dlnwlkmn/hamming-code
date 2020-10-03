@@ -138,26 +138,26 @@
     <option name="LAST_COMMIT_MESSAGE" value="Бинарное представление ошибки, поразрядное исключающее или вектора ошибки и вектора хамминга" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="344" y="64" key="CommitChangelistDialog2" timestamp="1601664868241">
+    <state x="344" y="64" key="CommitChangelistDialog2" timestamp="1601756338478">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
-    <state x="344" y="64" key="CommitChangelistDialog2/0.23.1440.877@0.23.1440.877" timestamp="1601664868241" />
-    <state width="1419" height="285" key="GridCell.Tab.0.bottom" timestamp="1601756261426">
+    <state x="344" y="64" key="CommitChangelistDialog2/0.23.1440.877@0.23.1440.877" timestamp="1601756338478" />
+    <state width="1419" height="245" key="GridCell.Tab.0.bottom" timestamp="1601756347090">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
-    <state width="1419" height="285" key="GridCell.Tab.0.bottom/0.23.1440.877@0.23.1440.877" timestamp="1601756261426" />
-    <state width="1419" height="285" key="GridCell.Tab.0.center" timestamp="1601756261426">
+    <state width="1419" height="245" key="GridCell.Tab.0.bottom/0.23.1440.877@0.23.1440.877" timestamp="1601756347090" />
+    <state width="1419" height="245" key="GridCell.Tab.0.center" timestamp="1601756347090">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
-    <state width="1419" height="285" key="GridCell.Tab.0.center/0.23.1440.877@0.23.1440.877" timestamp="1601756261426" />
-    <state width="1419" height="285" key="GridCell.Tab.0.left" timestamp="1601756261425">
+    <state width="1419" height="245" key="GridCell.Tab.0.center/0.23.1440.877@0.23.1440.877" timestamp="1601756347090" />
+    <state width="1419" height="245" key="GridCell.Tab.0.left" timestamp="1601756347089">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
-    <state width="1419" height="285" key="GridCell.Tab.0.left/0.23.1440.877@0.23.1440.877" timestamp="1601756261425" />
-    <state width="1419" height="285" key="GridCell.Tab.0.right" timestamp="1601756261426">
+    <state width="1419" height="245" key="GridCell.Tab.0.left/0.23.1440.877@0.23.1440.877" timestamp="1601756347089" />
+    <state width="1419" height="245" key="GridCell.Tab.0.right" timestamp="1601756347090">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
-    <state width="1419" height="285" key="GridCell.Tab.0.right/0.23.1440.877@0.23.1440.877" timestamp="1601756261426" />
+    <state width="1419" height="245" key="GridCell.Tab.0.right/0.23.1440.877@0.23.1440.877" timestamp="1601756347090" />
     <state width="1419" height="285" key="GridCell.Tab.1.bottom" timestamp="1601756261427">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
@@ -174,10 +174,10 @@
       <screen x="0" y="23" width="1440" height="877" />
     </state>
     <state width="1419" height="285" key="GridCell.Tab.1.right/0.23.1440.877@0.23.1440.877" timestamp="1601756261427" />
-    <state x="320" y="201" key="Vcs.Push.Dialog.v2" timestamp="1601664872810">
+    <state x="320" y="201" key="Vcs.Push.Dialog.v2" timestamp="1601756345820">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
-    <state x="320" y="201" key="Vcs.Push.Dialog.v2/0.23.1440.877@0.23.1440.877" timestamp="1601664872810" />
+    <state x="320" y="201" key="Vcs.Push.Dialog.v2/0.23.1440.877@0.23.1440.877" timestamp="1601756345820" />
     <state x="503" y="385" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1601663518268">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
