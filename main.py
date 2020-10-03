@@ -1,4 +1,5 @@
 from array import *
+from tabulate import tabulate
 
 
 def inputInformVector():
@@ -55,32 +56,54 @@ def getBinaryError(num):
     elif (num == 1): return "1"
     else: return getBinaryError(int(num/2)) + str(num%2)
 
+def decodeDamagedVector(vector):
+    syndrome = []
+    syndrome.append(vector[0] ^ vector[2] ^ vector[4] ^ vector[6])
+    syndrome.append(vector[1] ^ vector[2] ^ vector[5] ^ vector[6])
+    syndrome.append(vector[3] ^ vector[4] ^ vector[5] ^ vector[6])
+    return syndrome
+
+def getNumberOfOnes(errorVector):
+    number = 0
+    for i in range(0, 7):
+        if errorVector[i] == "1":
+            number +=1
+    return number
+
+def checkErrorSyndrome(syndrome):
+    for i in range(0, 3):
+        if syndrome[i] == 1:
+            return False
+    print(syndrome)
+    return True
 
 
 def main():
-    checkBits = [1,2,4]
+    foundErrors = [0,0,0,0,0,0,0]
     infVector = inputInformVector()
     hammingVector = getHemmingCode(infVector)
-    for i in range(0, 7):
-        print("Ci/n = " + str(getCombinations(7, i + 1)))
 
     for i in range(1, 128):
         damagedVector = []
+        dataTable = []
+        dataTableColumns = []
+        dataTableColumns.append(("Крастность", "Ci/n", "N0", "Способность"))
         binaryError = getBinaryError(i)
         length = len(binaryError)
         for j in range(0, 7 - length):
             binaryError = "0" + binaryError
-        print("До: " + str(hammingVector))
-        print("Ошибка: " + binaryError)
         for j in range(0, 7):
             damagedVector.append(hammingVector[j] ^ int(binaryError[j]))
-        print("После : " + str(damagedVector) + "\n")
 
+        errorSyndrome = decodeDamagedVector(damagedVector)
+        if checkErrorSyndrome(errorSyndrome) == False:
+            foundErrors[getNumberOfOnes(binaryError) - 1] += 1
 
+    for i in range(0, 7):
+        comb = getCombinations(7, i + 1)
+        dataTable.append((i + 1, comb, foundErrors[i], foundErrors[i]/comb))
 
-
-
-
+    print(tabulate(dataTable, headers=dataTableColumns[0], tablefmt="grid", stralign='center'))
 
 
 if __name__ == "__main__":
