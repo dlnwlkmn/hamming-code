@@ -5,7 +5,7 @@ from tabulate import tabulate
 def inputInformVector():
 
     toReturn = array('i', [])
-    inputStr =  input("Введите информационный вектор размером 4 бита: ")
+    inputStr =  input("\nВведите информационный вектор размером \033[7m4 бита\033[0m: ")
     if (len(inputStr) > 4):
         print("\033[33mИнформационный вектор не должен быть больше 4 бит\033[0m")
         return inputInformVector()
@@ -74,12 +74,12 @@ def checkErrorSyndrome(syndrome):
     for i in range(0, 3):
         if syndrome[i] == 1:
             return False
-    print(syndrome)
     return True
 
 
 def main():
     foundErrors = [0,0,0,0,0,0,0]
+    fatalErrors = []
     infVector = inputInformVector()
     hammingVector = getHemmingCode(infVector)
 
@@ -87,7 +87,7 @@ def main():
         damagedVector = []
         dataTable = []
         dataTableColumns = []
-        dataTableColumns.append(("Крастность", "Ci/n", "N0", "Способность"))
+        dataTableColumns.append(("Крастность", "Всего ошибок, шт.", "Выявлено ошибок, шт.", "Обнаруживающая способность кода, %"))
         binaryError = getBinaryError(i)
         length = len(binaryError)
         for j in range(0, 7 - length):
@@ -98,12 +98,19 @@ def main():
         errorSyndrome = decodeDamagedVector(damagedVector)
         if checkErrorSyndrome(errorSyndrome) == False:
             foundErrors[getNumberOfOnes(binaryError) - 1] += 1
+        else:
+            fatalErrors.append(binaryError)
 
     for i in range(0, 7):
         comb = getCombinations(7, i + 1)
         dataTable.append((i + 1, comb, foundErrors[i], foundErrors[i]/comb))
 
-    print(tabulate(dataTable, headers=dataTableColumns[0], tablefmt="grid", stralign='center'))
+    print("\033[36mТаблица:\033[0m\n" + "---"*34)
+    print(tabulate(dataTable, headers=dataTableColumns[0], tablefmt="pipe", stralign='center'))
+    print("---"*34)
+    print("\n\033[31mНевыявленные векторы ошибок:\033[0m")
+    for i in fatalErrors:
+        print("\033[33m" + i + "\033[0m", end=",")
 
 
 if __name__ == "__main__":

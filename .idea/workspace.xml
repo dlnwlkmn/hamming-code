@@ -2,14 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d6e28a05-5dce-4f51-b870-18e626e24d35" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/venv/lib/python3.8/site-packages/tabulate-0.8.7.dist-info/INSTALLER" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/venv/lib/python3.8/site-packages/tabulate-0.8.7.dist-info/LICENSE" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/venv/lib/python3.8/site-packages/tabulate-0.8.7.dist-info/METADATA" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/venv/lib/python3.8/site-packages/tabulate-0.8.7.dist-info/RECORD" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/venv/lib/python3.8/site-packages/tabulate-0.8.7.dist-info/WHEEL" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/venv/lib/python3.8/site-packages/tabulate-0.8.7.dist-info/entry_points.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/venv/lib/python3.8/site-packages/tabulate-0.8.7.dist-info/top_level.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/venv/lib/python3.8/site-packages/tabulate.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
     </list>
@@ -113,7 +105,21 @@
       <option name="project" value="LOCAL" />
       <updated>1601664868414</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Реализован вывод таблицы результатов по ДЗ в консоль с использованием библиотеки tabulate">
+      <created>1601756338644</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1601756338644</updated>
+    </task>
+    <task id="LOCAL-00007" summary="tabulate file commit">
+      <created>1601756390141</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1601756390141</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -135,49 +141,51 @@
     <MESSAGE value="Реализован рассчета кода хэмминга" />
     <MESSAGE value="реализованы функции по получению количества комбинаций и факториала" />
     <MESSAGE value="Бинарное представление ошибки, поразрядное исключающее или вектора ошибки и вектора хамминга" />
-    <option name="LAST_COMMIT_MESSAGE" value="Бинарное представление ошибки, поразрядное исключающее или вектора ошибки и вектора хамминга" />
+    <MESSAGE value="Реализован вывод таблицы результатов по ДЗ в консоль с использованием библиотеки tabulate" />
+    <MESSAGE value="tabulate file commit" />
+    <option name="LAST_COMMIT_MESSAGE" value="tabulate file commit" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="344" y="64" key="CommitChangelistDialog2" timestamp="1601756338478">
+    <state x="344" y="64" key="CommitChangelistDialog2" timestamp="1601756390002">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
-    <state x="344" y="64" key="CommitChangelistDialog2/0.23.1440.877@0.23.1440.877" timestamp="1601756338478" />
-    <state width="1419" height="245" key="GridCell.Tab.0.bottom" timestamp="1601756347090">
+    <state x="344" y="64" key="CommitChangelistDialog2/0.23.1440.877@0.23.1440.877" timestamp="1601756390002" />
+    <state width="1419" height="343" key="GridCell.Tab.0.bottom" timestamp="1602011299935">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
-    <state width="1419" height="245" key="GridCell.Tab.0.bottom/0.23.1440.877@0.23.1440.877" timestamp="1601756347090" />
-    <state width="1419" height="245" key="GridCell.Tab.0.center" timestamp="1601756347090">
+    <state width="1419" height="343" key="GridCell.Tab.0.bottom/0.23.1440.877@0.23.1440.877" timestamp="1602011299935" />
+    <state width="1419" height="343" key="GridCell.Tab.0.center" timestamp="1602011299934">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
-    <state width="1419" height="245" key="GridCell.Tab.0.center/0.23.1440.877@0.23.1440.877" timestamp="1601756347090" />
-    <state width="1419" height="245" key="GridCell.Tab.0.left" timestamp="1601756347089">
+    <state width="1419" height="343" key="GridCell.Tab.0.center/0.23.1440.877@0.23.1440.877" timestamp="1602011299934" />
+    <state width="1419" height="343" key="GridCell.Tab.0.left" timestamp="1602011299933">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
-    <state width="1419" height="245" key="GridCell.Tab.0.left/0.23.1440.877@0.23.1440.877" timestamp="1601756347089" />
-    <state width="1419" height="245" key="GridCell.Tab.0.right" timestamp="1601756347090">
+    <state width="1419" height="343" key="GridCell.Tab.0.left/0.23.1440.877@0.23.1440.877" timestamp="1602011299933" />
+    <state width="1419" height="343" key="GridCell.Tab.0.right" timestamp="1602011299934">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
-    <state width="1419" height="245" key="GridCell.Tab.0.right/0.23.1440.877@0.23.1440.877" timestamp="1601756347090" />
-    <state width="1419" height="285" key="GridCell.Tab.1.bottom" timestamp="1601756261427">
+    <state width="1419" height="343" key="GridCell.Tab.0.right/0.23.1440.877@0.23.1440.877" timestamp="1602011299934" />
+    <state width="1419" height="285" key="GridCell.Tab.1.bottom" timestamp="1602010853194">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
-    <state width="1419" height="285" key="GridCell.Tab.1.bottom/0.23.1440.877@0.23.1440.877" timestamp="1601756261427" />
-    <state width="1419" height="285" key="GridCell.Tab.1.center" timestamp="1601756261426">
+    <state width="1419" height="285" key="GridCell.Tab.1.bottom/0.23.1440.877@0.23.1440.877" timestamp="1602010853194" />
+    <state width="1419" height="285" key="GridCell.Tab.1.center" timestamp="1602010853194">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
-    <state width="1419" height="285" key="GridCell.Tab.1.center/0.23.1440.877@0.23.1440.877" timestamp="1601756261426" />
-    <state width="1419" height="285" key="GridCell.Tab.1.left" timestamp="1601756261426">
+    <state width="1419" height="285" key="GridCell.Tab.1.center/0.23.1440.877@0.23.1440.877" timestamp="1602010853194" />
+    <state width="1419" height="285" key="GridCell.Tab.1.left" timestamp="1602010853193">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
-    <state width="1419" height="285" key="GridCell.Tab.1.left/0.23.1440.877@0.23.1440.877" timestamp="1601756261426" />
-    <state width="1419" height="285" key="GridCell.Tab.1.right" timestamp="1601756261427">
+    <state width="1419" height="285" key="GridCell.Tab.1.left/0.23.1440.877@0.23.1440.877" timestamp="1602010853193" />
+    <state width="1419" height="285" key="GridCell.Tab.1.right" timestamp="1602010853194">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
-    <state width="1419" height="285" key="GridCell.Tab.1.right/0.23.1440.877@0.23.1440.877" timestamp="1601756261427" />
-    <state x="320" y="201" key="Vcs.Push.Dialog.v2" timestamp="1601756345820">
+    <state width="1419" height="285" key="GridCell.Tab.1.right/0.23.1440.877@0.23.1440.877" timestamp="1602010853194" />
+    <state x="320" y="201" key="Vcs.Push.Dialog.v2" timestamp="1601756394471">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
-    <state x="320" y="201" key="Vcs.Push.Dialog.v2/0.23.1440.877@0.23.1440.877" timestamp="1601756345820" />
+    <state x="320" y="201" key="Vcs.Push.Dialog.v2/0.23.1440.877@0.23.1440.877" timestamp="1601756394471" />
     <state x="503" y="385" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1601663518268">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
