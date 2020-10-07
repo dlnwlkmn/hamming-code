@@ -1,5 +1,6 @@
 from array import *
 from tabulate import tabulate
+import matplotlib.pyplot as plt
 
 
 def inputInformVector():
@@ -78,8 +79,10 @@ def checkErrorSyndrome(syndrome):
 
 
 def main():
+    multiplicity = [1,2,3,4,5,6,7]
     foundErrors = [0,0,0,0,0,0,0]
     fatalErrors = []
+    ability = []
     infVector = inputInformVector()
     hammingVector = getHemmingCode(infVector)
 
@@ -103,7 +106,9 @@ def main():
 
     for i in range(0, 7):
         comb = getCombinations(7, i + 1)
-        dataTable.append((i + 1, comb, foundErrors[i], foundErrors[i]/comb))
+        ab = foundErrors[i]/comb
+        dataTable.append((i + 1, comb, foundErrors[i], ab))
+        ability.append(ab)
 
     print("\033[36mТаблица:\033[0m\n" + "---"*34)
     print(tabulate(dataTable, headers=dataTableColumns[0], tablefmt="pipe", stralign='center'))
@@ -111,6 +116,18 @@ def main():
     print("\n\033[31mНевыявленные векторы ошибок:\033[0m")
     for i in fatalErrors:
         print("\033[33m" + i + "\033[0m", end=",")
+
+    # bar()
+    hex1 = '#10bf00'
+    hex2 = '#e31700'
+    fig = plt.figure()
+    ax = fig.add_subplot(111)  # добавление области рисования ax
+    ax.plot(multiplicity, ability, color=hex2)
+    ax.bar(multiplicity, ability, width=0.5, color=hex1, alpha=0.65, align='center')
+    plt.title('Столбцовая диаграмма')
+    plt.grid(True)  # линии вспомогательной сетки
+
+    plt.show()
 
 
 if __name__ == "__main__":
