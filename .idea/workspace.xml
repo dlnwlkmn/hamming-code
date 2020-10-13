@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d6e28a05-5dce-4f51-b870-18e626e24d35" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -31,7 +32,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyIntegratedToolsModulesConfigurable" />
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Python.main">
     <configuration name="main" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="hamming-code" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -53,9 +54,31 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="test" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="hamming-code" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/venv" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/venv/test.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
         <item itemvalue="Python.main" />
+        <item itemvalue="Python.test" />
       </list>
     </recent_temporary>
   </component>
@@ -147,7 +170,14 @@
       <option name="project" value="LOCAL" />
       <updated>1602576567082</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="Исправление получения поврежденного вектора и коррекция вывода результатов на экран.">
+      <created>1602577136305</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1602577136305</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -175,45 +205,46 @@
     <MESSAGE value="minor" />
     <MESSAGE value="комментирование главной функции программы" />
     <MESSAGE value="комментирование и исправление функции рассчета кода Хемминга" />
-    <option name="LAST_COMMIT_MESSAGE" value="комментирование и исправление функции рассчета кода Хемминга" />
+    <MESSAGE value="Исправление получения поврежденного вектора и коррекция вывода результатов на экран." />
+    <option name="LAST_COMMIT_MESSAGE" value="Исправление получения поврежденного вектора и коррекция вывода результатов на экран." />
   </component>
   <component name="WindowStateProjectService">
-    <state x="344" y="64" key="CommitChangelistDialog2" timestamp="1602576566924">
+    <state x="344" y="64" key="CommitChangelistDialog2" timestamp="1602585132424">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
-    <state x="344" y="64" key="CommitChangelistDialog2/0.23.1440.877@0.23.1440.877" timestamp="1602576566924" />
-    <state width="1419" height="178" key="GridCell.Tab.0.bottom" timestamp="1602577091050">
+    <state x="344" y="64" key="CommitChangelistDialog2/0.23.1440.877@0.23.1440.877" timestamp="1602585132424" />
+    <state width="1419" height="275" key="GridCell.Tab.0.bottom" timestamp="1602585046940">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
-    <state width="1419" height="178" key="GridCell.Tab.0.bottom/0.23.1440.877@0.23.1440.877" timestamp="1602577091050" />
-    <state width="1419" height="178" key="GridCell.Tab.0.center" timestamp="1602577091049">
+    <state width="1419" height="275" key="GridCell.Tab.0.bottom/0.23.1440.877@0.23.1440.877" timestamp="1602585046940" />
+    <state width="1419" height="275" key="GridCell.Tab.0.center" timestamp="1602585046939">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
-    <state width="1419" height="178" key="GridCell.Tab.0.center/0.23.1440.877@0.23.1440.877" timestamp="1602577091049" />
-    <state width="1419" height="178" key="GridCell.Tab.0.left" timestamp="1602577091049">
+    <state width="1419" height="275" key="GridCell.Tab.0.center/0.23.1440.877@0.23.1440.877" timestamp="1602585046939" />
+    <state width="1419" height="275" key="GridCell.Tab.0.left" timestamp="1602585046938">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
-    <state width="1419" height="178" key="GridCell.Tab.0.left/0.23.1440.877@0.23.1440.877" timestamp="1602577091049" />
-    <state width="1419" height="178" key="GridCell.Tab.0.right" timestamp="1602577091050">
+    <state width="1419" height="275" key="GridCell.Tab.0.left/0.23.1440.877@0.23.1440.877" timestamp="1602585046938" />
+    <state width="1419" height="275" key="GridCell.Tab.0.right" timestamp="1602585046939">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
-    <state width="1419" height="178" key="GridCell.Tab.0.right/0.23.1440.877@0.23.1440.877" timestamp="1602577091050" />
-    <state width="1419" height="228" key="GridCell.Tab.1.bottom" timestamp="1602576851049">
+    <state width="1419" height="275" key="GridCell.Tab.0.right/0.23.1440.877@0.23.1440.877" timestamp="1602585046939" />
+    <state width="1419" height="228" key="GridCell.Tab.1.bottom" timestamp="1602584439903">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
-    <state width="1419" height="228" key="GridCell.Tab.1.bottom/0.23.1440.877@0.23.1440.877" timestamp="1602576851049" />
-    <state width="1419" height="228" key="GridCell.Tab.1.center" timestamp="1602576851048">
+    <state width="1419" height="228" key="GridCell.Tab.1.bottom/0.23.1440.877@0.23.1440.877" timestamp="1602584439903" />
+    <state width="1419" height="228" key="GridCell.Tab.1.center" timestamp="1602584439902">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
-    <state width="1419" height="228" key="GridCell.Tab.1.center/0.23.1440.877@0.23.1440.877" timestamp="1602576851048" />
-    <state width="1419" height="228" key="GridCell.Tab.1.left" timestamp="1602576851048">
+    <state width="1419" height="228" key="GridCell.Tab.1.center/0.23.1440.877@0.23.1440.877" timestamp="1602584439902" />
+    <state width="1419" height="228" key="GridCell.Tab.1.left" timestamp="1602584439900">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
-    <state width="1419" height="228" key="GridCell.Tab.1.left/0.23.1440.877@0.23.1440.877" timestamp="1602576851048" />
-    <state width="1419" height="228" key="GridCell.Tab.1.right" timestamp="1602576851049">
+    <state width="1419" height="228" key="GridCell.Tab.1.left/0.23.1440.877@0.23.1440.877" timestamp="1602584439900" />
+    <state width="1419" height="228" key="GridCell.Tab.1.right" timestamp="1602584439903">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
-    <state width="1419" height="228" key="GridCell.Tab.1.right/0.23.1440.877@0.23.1440.877" timestamp="1602576851049" />
+    <state width="1419" height="228" key="GridCell.Tab.1.right/0.23.1440.877@0.23.1440.877" timestamp="1602584439903" />
     <state x="320" y="201" key="Vcs.Push.Dialog.v2" timestamp="1602070009744">
       <screen x="0" y="23" width="1440" height="877" />
     </state>

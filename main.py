@@ -81,12 +81,15 @@ def checkErrorSyndrome(syndrome):
 
 
 def main():
-    # Кортеж с заголовками таблицы
+    # Кортеж с заголовками таблицы 1
     dataTableColumns = ("Крастность", "Всего ошибок, шт.", "Выявлено ошибок, шт.", "Обнаруживающая способность кода", "%")
+    # Кортеж с заголовками таблицы 2
+    errorTableColumns = ("Крастность", "Ошибки")
 
     foundErrors = [0,0,0,0,0,0,0]                 # список для подсчета ошибок (всех кратностей (7))
-    fatalErrors = []                              # список ошибок, которые не были обнаружены
+    fatalErrors = ["","","","","","",""]          # список ошибок, которые не были обнаружены
     dataTable = []                                # список кортежей с иформацией для вывода в таблице
+    errorTable = []                               # список кортежей с ненайденными ошибками по кратностям
 
     infVector = inputInformVector()               # вызываем метод ввода информационного вектора
     hammingVector = getHemmingCode(infVector)     # вызоваем метод рассчета кода Хемминга
@@ -107,9 +110,9 @@ def main():
         errorSyndrome = decodeDamagedVector(damagedVector)  # декодируем поврежденный вектор (получаем синдром ошибки)
 
         if checkErrorSyndrome(errorSyndrome) == False:      # проверка на нулевой синдром
-            foundErrors[getNumberOfOnes(binaryError) - 1] += 1  # учитываем обнаруженную ошибку по кратности
+            foundErrors[getNumberOfOnes(binaryError) - 1] += 1              # учитываем обнаруженную ошибку по кратности
         else:
-            fatalErrors.append(binaryError)         # записываем код необнаруженной ошибки
+            fatalErrors[getNumberOfOnes(binaryError) - 1] += str(binaryError)+"\n"   # записываем код необнаруженной ошибки
 
     for i in range(0, 7):   # заполнение (с рассчетом) данных для таблицы
 
@@ -117,15 +120,20 @@ def main():
         k = foundErrors[i]/comb
         dataTable.append((i + 1, comb, foundErrors[i], k, round(k*100, 2)))
 
+    print(type(fatalErrors[1]))
     # печать таблицы в консоль
     print("\033[36mТаблица:\033[0m\n" + "---"*36)
     print(tabulate(dataTable, headers=dataTableColumns, tablefmt="pipe", stralign='center'))
     print("---"*36)
-    # печать списка невыявленных ошибок в консоль
-    print("\n\033[31mНевыявленные векторы ошибок:\033[0m")
-    for i in fatalErrors:
-        print("\033[33m" + i + "\033[0m", end=",")
 
+    for i in range(0, 7):   # заполнение кратностей и не найденных ошибок
+
+        errorTable.append((i + 1, fatalErrors[i]))
+
+    # печать списка невыявленных ошибок в консоль
+    print("\n\033[31mНевыявленные векторы ошибок по кратностям:\033[0m\n" + "---"*9)
+    print(tabulate(errorTable, headers=errorTableColumns, tablefmt="pipe", stralign='center'))
+    print("---" * 9)
 
 if __name__ == "__main__":  # точка входа в программу
     main()
