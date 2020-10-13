@@ -2,14 +2,16 @@ from array import *
 from tabulate import tabulate
 
 
+# функция ввода инфомрационного вектора
 def inputInformVector():
+    toReturn = array('i', [])   # объявление массива литералом
+    inputStr =  input("\nВведите информационный вектор размером \033[7m4 бита\033[0m: ")    # ввод вектора
 
-    toReturn = array('i', [])
-    inputStr =  input("\nВведите информационный вектор размером \033[7m4 бита\033[0m: ")
-    if (len(inputStr) > 4):
+    if (len(inputStr) > 4):     # проверка на четырёхразрядность
         print("\033[33mИнформационный вектор не должен быть больше 4 бит\033[0m")
         return inputInformVector()
-    for i in inputStr:
+
+    for i in inputStr:          # проверка на бинарный введеный вектор
         if (i == "1" or i == "0"):
             toReturn.append(int(i))
         else:
@@ -18,25 +20,26 @@ def inputInformVector():
     return toReturn
 
 
+# функция рассчета кода Хемминга
 def getHemmingCode(infVector):
-    hammCode = array('i', [])
-    infVectorCounter = 0
+    hammCode = array('i', [])   # объявление массива литералом
+    infVectorCounter = 1
     checkBitsCounter = 0
     for i in range(0, 7):
-        if i + 1 == 2**checkBitsCounter:
-            hammCode.insert(i, -1)
-            checkBitsCounter += 1
+        if i + 1 == 2**checkBitsCounter:    # провека разряда контрольной суммы
+            hammCode.insert(i, -1)          # помечаем такие разряды -1
+            checkBitsCounter += 1           # увеличиваем степень двойки на единицу
         else:
-            hammCode.insert(i, infVector[infVectorCounter])
+            hammCode.insert(i, infVector[len(infVector)-infVectorCounter])  # инсерт значения инф. вектора
             infVectorCounter += 1
 
-        if hammCode[i] == -1:
+        if hammCode[i] == -1:               # рассчет разрядов контрольной суммы
             if i == 0:
-                hammCode[i] = (infVector[0] ^ infVector[1] ^ infVector[3])
-            elif i == 1:
                 hammCode[i] = (infVector[0] ^ infVector[2] ^ infVector[3])
+            elif i == 1:
+                hammCode[i] = (infVector[0] ^ infVector[1] ^ infVector[3])
             elif i == 3:
-                hammCode[i] = (infVector[1] ^ infVector[2] ^ infVector[3])
+                hammCode[i] = (infVector[0] ^ infVector[1] ^ infVector[2])
     return hammCode
 
 def factorial(num):
@@ -88,6 +91,7 @@ def main():
     dataTable = []                              # список кортежей с иформацией для вывода в таблице
 
     for i in range(1, 128):                 # цикл по всем ошибкам
+
         damagedVector = []                  # список для хранения поврежденного вектора
         binaryError = getBinaryError(i)     # вызываем метод, возвращающий ошибку в бинарном виде
 
@@ -105,6 +109,7 @@ def main():
             fatalErrors.append(binaryError)         # записываем код необнаруженной ошибки
 
     for i in range(0, 7):   # заполнение (с рассчетом) данных для таблицы
+
         comb = getCombinations(7, i + 1)    # рассчет общего количества ошибок (i+1)-й кратности
         dataTable.append((i + 1, comb, foundErrors[i], foundErrors[i]/comb))
 

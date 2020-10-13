@@ -134,7 +134,14 @@
       <option name="project" value="LOCAL" />
       <updated>1602070001595</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="комментирование главной функции программы">
+      <created>1602575395993</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1602575395993</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -160,45 +167,46 @@
     <MESSAGE value="tabulate file commit" />
     <MESSAGE value="formating output" />
     <MESSAGE value="minor" />
-    <option name="LAST_COMMIT_MESSAGE" value="minor" />
+    <MESSAGE value="комментирование главной функции программы" />
+    <option name="LAST_COMMIT_MESSAGE" value="комментирование главной функции программы" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="344" y="64" key="CommitChangelistDialog2" timestamp="1602070001450">
+    <state x="344" y="64" key="CommitChangelistDialog2" timestamp="1602575395567">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
-    <state x="344" y="64" key="CommitChangelistDialog2/0.23.1440.877@0.23.1440.877" timestamp="1602070001450" />
-    <state width="1419" height="343" key="GridCell.Tab.0.bottom" timestamp="1602574948758">
+    <state x="344" y="64" key="CommitChangelistDialog2/0.23.1440.877@0.23.1440.877" timestamp="1602575395567" />
+    <state width="1419" height="228" key="GridCell.Tab.0.bottom" timestamp="1602576441965">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
-    <state width="1419" height="343" key="GridCell.Tab.0.bottom/0.23.1440.877@0.23.1440.877" timestamp="1602574948758" />
-    <state width="1419" height="343" key="GridCell.Tab.0.center" timestamp="1602574948757">
+    <state width="1419" height="228" key="GridCell.Tab.0.bottom/0.23.1440.877@0.23.1440.877" timestamp="1602576441965" />
+    <state width="1419" height="228" key="GridCell.Tab.0.center" timestamp="1602576441964">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
-    <state width="1419" height="343" key="GridCell.Tab.0.center/0.23.1440.877@0.23.1440.877" timestamp="1602574948757" />
-    <state width="1419" height="343" key="GridCell.Tab.0.left" timestamp="1602574948756">
+    <state width="1419" height="228" key="GridCell.Tab.0.center/0.23.1440.877@0.23.1440.877" timestamp="1602576441964" />
+    <state width="1419" height="228" key="GridCell.Tab.0.left" timestamp="1602576441963">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
-    <state width="1419" height="343" key="GridCell.Tab.0.left/0.23.1440.877@0.23.1440.877" timestamp="1602574948756" />
-    <state width="1419" height="343" key="GridCell.Tab.0.right" timestamp="1602574948757">
+    <state width="1419" height="228" key="GridCell.Tab.0.left/0.23.1440.877@0.23.1440.877" timestamp="1602576441963" />
+    <state width="1419" height="228" key="GridCell.Tab.0.right" timestamp="1602576441964">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
-    <state width="1419" height="343" key="GridCell.Tab.0.right/0.23.1440.877@0.23.1440.877" timestamp="1602574948757" />
-    <state width="1419" height="285" key="GridCell.Tab.1.bottom" timestamp="1602011410452">
+    <state width="1419" height="228" key="GridCell.Tab.0.right/0.23.1440.877@0.23.1440.877" timestamp="1602576441964" />
+    <state width="1419" height="228" key="GridCell.Tab.1.bottom" timestamp="1602576441966">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
-    <state width="1419" height="285" key="GridCell.Tab.1.bottom/0.23.1440.877@0.23.1440.877" timestamp="1602011410452" />
-    <state width="1419" height="285" key="GridCell.Tab.1.center" timestamp="1602011410452">
+    <state width="1419" height="228" key="GridCell.Tab.1.bottom/0.23.1440.877@0.23.1440.877" timestamp="1602576441966" />
+    <state width="1419" height="228" key="GridCell.Tab.1.center" timestamp="1602576441966">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
-    <state width="1419" height="285" key="GridCell.Tab.1.center/0.23.1440.877@0.23.1440.877" timestamp="1602011410452" />
-    <state width="1419" height="285" key="GridCell.Tab.1.left" timestamp="1602011410452">
+    <state width="1419" height="228" key="GridCell.Tab.1.center/0.23.1440.877@0.23.1440.877" timestamp="1602576441966" />
+    <state width="1419" height="228" key="GridCell.Tab.1.left" timestamp="1602576441965">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
-    <state width="1419" height="285" key="GridCell.Tab.1.left/0.23.1440.877@0.23.1440.877" timestamp="1602011410452" />
-    <state width="1419" height="285" key="GridCell.Tab.1.right" timestamp="1602011410452">
+    <state width="1419" height="228" key="GridCell.Tab.1.left/0.23.1440.877@0.23.1440.877" timestamp="1602576441965" />
+    <state width="1419" height="228" key="GridCell.Tab.1.right" timestamp="1602576441966">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
-    <state width="1419" height="285" key="GridCell.Tab.1.right/0.23.1440.877@0.23.1440.877" timestamp="1602011410452" />
+    <state width="1419" height="228" key="GridCell.Tab.1.right/0.23.1440.877@0.23.1440.877" timestamp="1602576441966" />
     <state x="320" y="201" key="Vcs.Push.Dialog.v2" timestamp="1602070009744">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
@@ -207,5 +215,16 @@
       <screen x="0" y="23" width="1440" height="877" />
     </state>
     <state x="503" y="385" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.23.1440.877@0.23.1440.877" timestamp="1602070047805" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/main.py</url>
+          <line>27</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
