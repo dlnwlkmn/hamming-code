@@ -82,13 +82,16 @@ def checkErrorSyndrome(syndrome):
 
 def main():
     # Кортеж с заголовками таблицы
-    dataTableColumns = ("Крастность", "Всего ошибок, шт.", "Выявлено ошибок, шт.", "Обнаруживающая способность кода, %")
+    dataTableColumns = ("Крастность", "Всего ошибок, шт.", "Выявлено ошибок, шт.", "Обнаруживающая способность кода", "%")
 
-    foundErrors = [0,0,0,0,0,0,0]               # список для подсчета ошибок (всех кратностей (7))
-    fatalErrors = []                            # список ошибок, которые не были обнаружены
-    infVector = inputInformVector()             # вызываем метод ввода информационного вектора
-    hammingVector = getHemmingCode(infVector)   # вызоваем метод рассчета кода Хемминга
-    dataTable = []                              # список кортежей с иформацией для вывода в таблице
+    foundErrors = [0,0,0,0,0,0,0]                 # список для подсчета ошибок (всех кратностей (7))
+    fatalErrors = []                              # список ошибок, которые не были обнаружены
+    dataTable = []                                # список кортежей с иформацией для вывода в таблице
+
+    infVector = inputInformVector()               # вызываем метод ввода информационного вектора
+    hammingVector = getHemmingCode(infVector)     # вызоваем метод рассчета кода Хемминга
+    hammingVector.reverse()
+
 
     for i in range(1, 128):                 # цикл по всем ошибкам
 
@@ -111,12 +114,13 @@ def main():
     for i in range(0, 7):   # заполнение (с рассчетом) данных для таблицы
 
         comb = getCombinations(7, i + 1)    # рассчет общего количества ошибок (i+1)-й кратности
-        dataTable.append((i + 1, comb, foundErrors[i], foundErrors[i]/comb))
+        k = foundErrors[i]/comb
+        dataTable.append((i + 1, comb, foundErrors[i], k, round(k*100, 2)))
 
     # печать таблицы в консоль
-    print("\033[36mТаблица:\033[0m\n" + "---"*34)
+    print("\033[36mТаблица:\033[0m\n" + "---"*36)
     print(tabulate(dataTable, headers=dataTableColumns, tablefmt="pipe", stralign='center'))
-    print("---"*34)
+    print("---"*36)
     # печать списка невыявленных ошибок в консоль
     print("\n\033[31mНевыявленные векторы ошибок:\033[0m")
     for i in fatalErrors:
