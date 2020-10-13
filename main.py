@@ -42,6 +42,8 @@ def getHemmingCode(infVector):
                 hammCode[i] = (infVector[0] ^ infVector[1] ^ infVector[2])
     return hammCode
 
+
+# функция рассчета факториала
 def factorial(num):
     if num < 0:
         return 0
@@ -51,14 +53,20 @@ def factorial(num):
         return num
     return num * factorial(num - 1)
 
+
+# функция получения кол-ва комбинаций
 def getCombinations(n, i):
     return factorial(n)/(factorial(i)*factorial(n-i))
 
+
+# функция получения вектора ошибки в двоичном виде
 def getBinaryError(num):
     if (num == 0): return "0"
     elif (num == 1): return "1"
     else: return getBinaryError(int(num/2)) + str(num%2)
 
+
+# фукнция, декодирующая поврежденный код Хемминга
 def decodeDamagedVector(vector):
     syndrome = []
     syndrome.append(vector[0] ^ vector[2] ^ vector[4] ^ vector[6])
@@ -66,6 +74,8 @@ def decodeDamagedVector(vector):
     syndrome.append(vector[3] ^ vector[4] ^ vector[5] ^ vector[6])
     return syndrome
 
+
+# функция по подсчёту единиц в векторе (str)
 def getNumberOfOnes(errorVector):
     number = 0
     for i in range(0, 7):
@@ -73,13 +83,15 @@ def getNumberOfOnes(errorVector):
             number +=1
     return number
 
+
+# функция по проверке синдрома ошибки (на ноль)
 def checkErrorSyndrome(syndrome):
     for i in range(0, 3):
         if syndrome[i] == 1:
             return False
     return True
 
-
+# главная функция
 def main():
     # Кортеж с заголовками таблицы 1
     dataTableColumns = ("Крастность", "Всего ошибок, шт.", "Выявлено ошибок, шт.", "Обнаруживающая способность кода", "%")
@@ -134,6 +146,13 @@ def main():
     print("\n\033[31mНевыявленные векторы ошибок по кратностям:\033[0m\n" + "---"*9)
     print(tabulate(errorTable, headers=errorTableColumns, tablefmt="pipe", stralign='center'))
     print("---" * 9)
+
+    # предложение печати графика
+    if input("Хотите построить график?(y/'other') :") == "y":
+        print()
+    else:
+        print()
+
 
 if __name__ == "__main__":  # точка входа в программу
     main()
