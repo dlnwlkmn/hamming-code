@@ -78,40 +78,45 @@ def checkErrorSyndrome(syndrome):
 
 
 def main():
-    foundErrors = [0,0,0,0,0,0,0]
-    fatalErrors = []
-    infVector = inputInformVector()
-    hammingVector = getHemmingCode(infVector)
+    # Кортеж с заголовками таблицы
+    dataTableColumns = ("Крастность", "Всего ошибок, шт.", "Выявлено ошибок, шт.", "Обнаруживающая способность кода, %")
 
-    for i in range(1, 128):
-        damagedVector = []
-        dataTable = []
-        dataTableColumns = []
-        dataTableColumns.append(("Крастность", "Всего ошибок, шт.", "Выявлено ошибок, шт.", "Обнаруживающая способность кода, %"))
-        binaryError = getBinaryError(i)
-        length = len(binaryError)
-        for j in range(0, 7 - length):
+    foundErrors = [0,0,0,0,0,0,0]               # список для подсчета ошибок (всех кратностей (7))
+    fatalErrors = []                            # список ошибок, которые не были обнаружены
+    infVector = inputInformVector()             # вызываем метод ввода информационного вектора
+    hammingVector = getHemmingCode(infVector)   # вызоваем метод рассчета кода Хемминга
+    dataTable = []                              # список кортежей с иформацией для вывода в таблице
+
+    for i in range(1, 128):                 # цикл по всем ошибкам
+        damagedVector = []                  # список для хранения поврежденного вектора
+        binaryError = getBinaryError(i)     # вызываем метод, возвращающий ошибку в бинарном виде
+
+        for j in range(0, 7 - len(binaryError)):    # в цикле дописываются нули до 7ми разрядов
             binaryError = "0" + binaryError
-        for j in range(0, 7):
+
+        for j in range(0, 7):                       # в цикле получаем поврежденные код
             damagedVector.append(hammingVector[j] ^ int(binaryError[j]))
 
-        errorSyndrome = decodeDamagedVector(damagedVector)
-        if checkErrorSyndrome(errorSyndrome) == False:
-            foundErrors[getNumberOfOnes(binaryError) - 1] += 1
-        else:
-            fatalErrors.append(binaryError)
+        errorSyndrome = decodeDamagedVector(damagedVector)  # декодируем поврежденный вектор (получаем синдром ошибки)
 
-    for i in range(0, 7):
-        comb = getCombinations(7, i + 1)
+        if checkErrorSyndrome(errorSyndrome) == False:      # проверка на нулевой синдром
+            foundErrors[getNumberOfOnes(binaryError) - 1] += 1  # учитываем обнаруженную ошибку по кратности
+        else:
+            fatalErrors.append(binaryError)         # записываем код необнаруженной ошибки
+
+    for i in range(0, 7):   # заполнение (с рассчетом) данных для таблицы
+        comb = getCombinations(7, i + 1)    # рассчет общего количества ошибок (i+1)-й кратности
         dataTable.append((i + 1, comb, foundErrors[i], foundErrors[i]/comb))
 
+    # печать таблицы в консоль
     print("\033[36mТаблица:\033[0m\n" + "---"*34)
-    print(tabulate(dataTable, headers=dataTableColumns[0], tablefmt="pipe", stralign='center'))
+    print(tabulate(dataTable, headers=dataTableColumns, tablefmt="pipe", stralign='center'))
     print("---"*34)
+    # печать списка невыявленных ошибок в консоль
     print("\n\033[31mНевыявленные векторы ошибок:\033[0m")
     for i in fatalErrors:
         print("\033[33m" + i + "\033[0m", end=",")
 
 
-if __name__ == "__main__":
+if __name__ == "__main__":  # точка входа в программу
     main()
