@@ -132,26 +132,18 @@ def main():
         k = foundErrors[i]/comb
         dataTable.append((i + 1, comb, foundErrors[i], k, round(k*100, 2)))
 
-    print(type(fatalErrors[1]))
     # печать таблицы в консоль
     print("\033[36mТаблица:\033[0m\n" + "---"*36)
     print(tabulate(dataTable, headers=dataTableColumns, tablefmt="pipe", stralign='center'))
     print("---"*36)
 
     for i in range(0, 7):   # заполнение кратностей и не найденных ошибок
-
         errorTable.append((i + 1, fatalErrors[i]))
 
     # печать списка невыявленных ошибок в консоль
     print("\n\033[31mНевыявленные векторы ошибок по кратностям:\033[0m\n" + "---"*9)
     print(tabulate(errorTable, headers=errorTableColumns, tablefmt="pipe", stralign='center'))
     print("---" * 9)
-
-    # предложение печати графика
-    if input("Хотите построить график?(y/'other') :") == "y":
-        print()
-    else:
-        print()
 
 
 if __name__ == "__main__":  # точка входа в программу
