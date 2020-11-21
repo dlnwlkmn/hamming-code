@@ -69,9 +69,10 @@ def getBinaryError(num):
 # фукнция, декодирующая поврежденный код Хемминга
 def decodeDamagedVector(vector):
     syndrome = []
-    syndrome.append(vector[0] ^ vector[2] ^ vector[4] ^ vector[6])
-    syndrome.append(vector[1] ^ vector[2] ^ vector[5] ^ vector[6])
-    syndrome.append(vector[3] ^ vector[4] ^ vector[5] ^ vector[6])
+    syndrome.append(vector[6] ^ vector[4] ^ vector[2] ^ vector[0])
+    syndrome.append(vector[5] ^ vector[4] ^ vector[1] ^ vector[0])
+    syndrome.append(vector[3] ^ vector[2] ^ vector[1] ^ vector[0])
+    syndrome.reverse()
     return syndrome
 
 
@@ -107,6 +108,7 @@ def main():
     hammingVector = getHemmingCode(infVector)     # вызоваем метод рассчета кода Хемминга
     hammingVector.reverse()
 
+    print("\n\033[33mКод Хемминга:\033[0m: "+str(hammingVector.tolist())+"\n")
 
     for i in range(1, 128):                 # цикл по всем ошибкам
 
