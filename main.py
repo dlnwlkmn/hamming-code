@@ -110,7 +110,7 @@ def main():
 
     print("\n\033[33mКод Хемминга:\033[0m: "+str(hammingVector.tolist())+"\n")
 
-    for i in range(1, 128):                 # цикл по всем ошибкам
+    for i in range(1, 2**7):                 # цикл по всем ошибкам
 
         damagedVector = []                  # список для хранения поврежденного вектора
         binaryError = getBinaryError(i)     # вызываем метод, возвращающий ошибку в бинарном виде
