@@ -5,10 +5,14 @@ from tabulate import tabulate
 # функция ввода инфомрационного вектора
 def inputInformVector():
     toReturn = array('i', [])   # объявление массива литералом
-    inputStr =  input("\nВведите информационный вектор размером \033[7m4 бита\033[0m: ")    # ввод вектора
+    inputStr =  input("\nВведите информационный вектор размером \033[7m11 бит\033[0m: ")    # ввод вектора
 
-    if (len(inputStr) > 4):     # проверка на четырёхразрядность
-        print("\033[33mИнформационный вектор не должен быть больше 4 бит\033[0m")
+    if (len(inputStr) > 11):     # проверка на четырёхразрядность
+        print("\033[33mИнформационный вектор не должен быть больше 11 бит\033[0m")
+        return inputInformVector()
+
+    if (len(inputStr) < 11):     # проверка на четырёхразрядность
+        print("\033[33mИнформационный вектор не должен быть меньше 11 бит\033[0m")
         return inputInformVector()
 
     for i in inputStr:          # проверка на бинарный введеный вектор
@@ -25,7 +29,7 @@ def getHemmingCode(infVector):
     hammCode = array('i', [])   # объявление массива литералом
     infVectorCounter = 1
     checkBitsCounter = 0
-    for i in range(0, 7):
+    for i in range(0, 15):
         if i + 1 == 2**checkBitsCounter:    # провека разряда контрольной суммы
             hammCode.insert(i, -1)          # помечаем такие разряды -1
             checkBitsCounter += 1           # увеличиваем степень двойки на единицу
@@ -35,11 +39,13 @@ def getHemmingCode(infVector):
 
         if hammCode[i] == -1:               # рассчет разрядов контрольной суммы
             if i == 0:
-                hammCode[i] = (infVector[0] ^ infVector[2] ^ infVector[3])
+                hammCode[i] = (infVector[0] ^ infVector[2] ^ infVector[4] ^ infVector[6] ^ infVector[7] ^ infVector[9] ^ infVector[10])
             elif i == 1:
-                hammCode[i] = (infVector[0] ^ infVector[1] ^ infVector[3])
+                hammCode[i] = (infVector[0] ^ infVector[1] ^ infVector[4] ^ infVector[5] ^ infVector[7] ^ infVector[8] ^ infVector[10])
             elif i == 3:
-                hammCode[i] = (infVector[0] ^ infVector[1] ^ infVector[2])
+                hammCode[i] = (infVector[0] ^ infVector[1] ^ infVector[2] ^ infVector[7] ^ infVector[8] ^ infVector[9])
+            elif i == 7:
+                hammCode[i] = (infVector[0] ^ infVector[1] ^ infVector[2] ^ infVector[3] ^ infVector[4] ^ infVector[5] ^ infVector[6])
     return hammCode
 
 
@@ -69,9 +75,10 @@ def getBinaryError(num):
 # фукнция, декодирующая поврежденный код Хемминга
 def decodeDamagedVector(vector):
     syndrome = []
-    syndrome.append(vector[6] ^ vector[4] ^ vector[2] ^ vector[0])
-    syndrome.append(vector[5] ^ vector[4] ^ vector[1] ^ vector[0])
-    syndrome.append(vector[3] ^ vector[2] ^ vector[1] ^ vector[0])
+    syndrome.append(vector[14] ^ vector[12] ^ vector[10] ^ vector[8] ^ vector[6] ^ vector[4] ^ vector[2] ^ vector[0])
+    syndrome.append(vector[13] ^ vector[12] ^ vector[9] ^ vector[8] ^ vector[5] ^ vector[4] ^ vector[1] ^ vector[0])
+    syndrome.append(vector[11] ^ vector[10] ^ vector[9] ^ vector[8] ^ vector[3] ^ vector[2] ^ vector[1] ^ vector[0])
+    syndrome.append(vector[7] ^ vector[6] ^ vector[5] ^ vector[4] ^ vector[3] ^ vector[2] ^ vector[1] ^ vector[0])
     syndrome.reverse()
     return syndrome
 
@@ -79,7 +86,7 @@ def decodeDamagedVector(vector):
 # функция по подсчёту единиц в векторе (str)
 def getNumberOfOnes(errorVector):
     number = 0
-    for i in range(0, 7):
+    for i in range(0, 15):
         if errorVector[i] == "1":
             number +=1
     return number
@@ -87,7 +94,7 @@ def getNumberOfOnes(errorVector):
 
 # функция по проверке синдрома ошибки (на ноль)
 def checkErrorSyndrome(syndrome):
-    for i in range(0, 3):
+    for i in range(0, 4):
         if syndrome[i] == 1:
             return False
     return True
@@ -99,8 +106,8 @@ def main():
     # Кортеж с заголовками таблицы 2
     errorTableColumns = ("Крастность", "Ошибки")
 
-    foundErrors = [0,0,0,0,0,0,0]                 # список для подсчета ошибок (всех кратностей (7))
-    fatalErrors = ["","","","","","",""]          # список ошибок, которые не были обнаружены
+    foundErrors = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]                 # список для подсчета ошибок (всех кратностей (7))
+    fatalErrors = ["","","","","","","","","","","","","","",""]          # список ошибок, которые не были обнаружены
     dataTable = []                                # список кортежей с иформацией для вывода в таблице
     errorTable = []                               # список кортежей с ненайденными ошибками по кратностям
 
@@ -110,15 +117,15 @@ def main():
 
     print("\n\033[33mКод Хемминга:\033[0m: "+str(hammingVector.tolist())+"\n")
 
-    for i in range(1, 2**7):                 # цикл по всем ошибкам
+    for i in range(1, 2**15):                 # цикл по всем ошибкам
 
         damagedVector = []                  # список для хранения поврежденного вектора
         binaryError = getBinaryError(i)     # вызываем метод, возвращающий ошибку в бинарном виде
 
-        for j in range(0, 7 - len(binaryError)):    # в цикле дописываются нули до 7ми разрядов
+        for j in range(0, 15 - len(binaryError)):    # в цикле дописываются нули до 7ми разрядов
             binaryError = "0" + binaryError
 
-        for j in range(0, 7):                       # в цикле получаем поврежденные код
+        for j in range(0, 15):                       # в цикле получаем поврежденные код
             damagedVector.append(hammingVector[j] ^ int(binaryError[j]))
 
         errorSyndrome = decodeDamagedVector(damagedVector)  # декодируем поврежденный вектор (получаем синдром ошибки)
@@ -128,9 +135,9 @@ def main():
         else:
             fatalErrors[getNumberOfOnes(binaryError) - 1] += str(binaryError)+"\n"   # записываем код необнаруженной ошибки
 
-    for i in range(0, 7):   # заполнение (с рассчетом) данных для таблицы
+    for i in range(0, 15):   # заполнение (с рассчетом) данных для таблицы
 
-        comb = getCombinations(7, i + 1)    # рассчет общего количества ошибок (i+1)-й кратности
+        comb = getCombinations(15, i + 1)    # рассчет общего количества ошибок (i+1)-й кратности
         k = foundErrors[i]/comb
         dataTable.append((i + 1, comb, foundErrors[i], k, round(k*100, 2)))
 
@@ -139,7 +146,7 @@ def main():
     print(tabulate(dataTable, headers=dataTableColumns, tablefmt="pipe", stralign='center'))
     print("---"*36)
 
-    for i in range(0, 7):   # заполнение кратностей и не найденных ошибок
+    for i in range(0, 15):   # заполнение кратностей и не найденных ошибок
         errorTable.append((i + 1, fatalErrors[i]))
 
     # печать списка невыявленных ошибок в консоль
